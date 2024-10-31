@@ -24,7 +24,7 @@ Build a high-performance classifier for cancer detection from histopathologic im
 
 ## 📁 Project Structure
 
-```bash
+
 histopathologic-cancer-detection/
 ├── train/                 # Training images
 ├── test/                  # Test images
