@@ -53,10 +53,10 @@ The dataset consists of histopathology images labeled as either containing cance
 🔥 Model Architecture
 Our CNN architecture uses 5 convolutional layers with batch normalization and ReLU activation functions. The layers increase in depth, starting from 32 channels up to 512 channels, capturing increasingly complex patterns. Here's a breakdown:
 
-Convolutional Layers: Feature extraction from images.
-MaxPooling Layers: Reducing the spatial dimensions, focusing on important features.
-Dropout Layers: Preventing overfitting by randomly dropping nodes.
-Fully Connected Layers: Classification based on extracted features.
+•	Convolutional Layers: Feature extraction from images.
+•	MaxPooling Layers: Reducing the spatial dimensions, focusing on important features.
+•	Dropout Layers: Preventing overfitting by randomly dropping nodes.
+•	Fully Connected Layers: Classification based on extracted features.
 
 class CNN(nn.Module):
     def __init__(self):
@@ -69,9 +69,9 @@ class CNN(nn.Module):
         )
         # Additional convolutional layers...
 Why These Layers? 🤖
-ReLU Activation: Prevents vanishing gradient issues and accelerates learning.
-Batch Normalization: Normalizes layer outputs for faster convergence and better performance.
-Dropout: Regularization technique to improve model generalization.
+•	ReLU Activation: Prevents vanishing gradient issues and accelerates learning.
+•	Batch Normalization: Normalizes layer outputs for faster convergence and better performance.
+•	Dropout: Regularization technique to improve model generalization.
 
 
 🧮 Loss & Optimization
@@ -90,9 +90,9 @@ train_on_gpu = torch.cuda.is_available()
 📈 Evaluation
 Each epoch, we track:
 
-Training Loss: Measures error in the training set.
-Validation Loss: Measures error in the validation set.
-Validation AUC: Provides a measure of how well the model distinguishes between classes.
+•	Training Loss: Measures error in the training set.
+•	Validation Loss: Measures error in the validation set.
+•	Validation AUC: Provides a measure of how well the model distinguishes between classes.
 We save the model if the validation loss decreases:
 if valid_loss <= valid_loss_min:
     torch.save(model.state_dict(), 'best_model.pt')
