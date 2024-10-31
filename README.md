@@ -4,7 +4,7 @@ Welcome to the **Histopathologic Cancer Detection Project**! This project aims t
 
 ## 🌟 Objective
 
-Build a high-performance classifier for cancer detection from histopathologic images.
+The objective of this project is to build a high-performance classifier for cancer detection from histopathologic images.
 
 ---
 
@@ -22,87 +22,86 @@ Build a high-performance classifier for cancer detection from histopathologic im
 
 ---
 
-## 📁 Project Structure
 
+---
 
-histopathologic-cancer-detection/
-├── train/                 # Training images
-├── test/                  # Test images
-├── train_labels.csv       # Labels for training images
-├── sample_submission.csv  # Sample submission format
-└── README.md              # Project documentation
+## 🚀 Getting Started
 
-
-🚀 Getting Started
 To set up and run this project on your machine, ensure you have Python and PyTorch installed. Clone the repository and navigate to the project directory.
 
-# Clone the repository
-git clone https://github.com/YourUsername/Histopathologic_Cancer_Detection.git
-cd Histopathologic_Cancer_Detection
+Clone the repository
+git clone https://github.com/YourUsername/Histopathologic_Cancer_Detection.git cd Histopathologic_Cancer_Detection
 
-# Install required libraries
+Install required libraries
 pip install -r requirements.txt
 
-📊 Data Overview
-Dataset Details
+
+---
+
+## 📊 Data Overview
+
+### Dataset Details
 The dataset consists of histopathology images labeled as either containing cancerous tissue or not:
 
-0: No Cancer
-1: Cancer
+- `0`: No Cancer
+- `1`: Cancer
 
-🔥 Model Architecture
-Our CNN architecture uses 5 convolutional layers with batch normalization and ReLU activation functions. The layers increase in depth, starting from 32 channels up to 512 channels, capturing increasingly complex patterns. Here's a breakdown:
+---
 
-•	Convolutional Layers: Feature extraction from images.
-•	MaxPooling Layers: Reducing the spatial dimensions, focusing on important features.
-•	Dropout Layers: Preventing overfitting by randomly dropping nodes.
-•	Fully Connected Layers: Classification based on extracted features.
+## 🔥 Model Architecture
 
-class CNN(nn.Module):
-    def __init__(self):
-        super(CNN,self).__init__()
-        self.conv1 = nn.Sequential(
-            nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=0),
-            nn.BatchNorm2d(32),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(2,2)
-        )
-        # Additional convolutional layers...
-Why These Layers? 🤖
-•	ReLU Activation: Prevents vanishing gradient issues and accelerates learning.
-•	Batch Normalization: Normalizes layer outputs for faster convergence and better performance.
-•	Dropout: Regularization technique to improve model generalization.
+Our CNN architecture uses 5 convolutional layers with batch normalization and ReLU activation functions. The layers increase in depth, starting from 32 channels up to 512 channels, capturing increasingly complex patterns.
+
+### Layer Breakdown
+- **Convolutional Layers**: Feature extraction from images.
+- **MaxPooling Layers**: Reducing spatial dimensions, focusing on important features.
+- **Dropout Layers**: Preventing overfitting by randomly dropping nodes.
+- **Fully Connected Layers**: Classification based on extracted features.
 
 
-🧮 Loss & Optimization
+### Why These Layers? 🤖
+- **ReLU Activation**: Prevents vanishing gradient issues and accelerates learning.
+- **Batch Normalization**: Normalizes layer outputs for faster convergence and better performance.
+- **Dropout**: Regularization technique to improve model generalization.
+
+---
+
+## 🧮 Loss & Optimization
+
 We use Binary Cross-Entropy Loss (BCELoss) for this binary classification task, with the Adam Optimizer to minimize the loss effectively.
 
-criterion = nn.BCELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.00015)
 
+---
 
-🌐 GPU Support
+## 🌐 GPU Support
+
 Training on GPU (if available) is enabled for faster computation. Ensure CUDA is enabled in your PyTorch installation.
-# Check for GPU
-train_on_gpu = torch.cuda.is_available()
 
 
-📈 Evaluation
+---
+
+## 📈 Evaluation
+
 Each epoch, we track:
 
-•	Training Loss: Measures error in the training set.
-•	Validation Loss: Measures error in the validation set.
-•	Validation AUC: Provides a measure of how well the model distinguishes between classes.
+- **Training Loss**: Measures error in the training set.
+- **Validation Loss**: Measures error in the validation set.
+- **Validation AUC**: Provides a measure of how well the model distinguishes between classes.
+
 We save the model if the validation loss decreases:
-if valid_loss <= valid_loss_min:
-    torch.save(model.state_dict(), 'best_model.pt')
-
-🤔 Challenges & Learnings
-Class Imbalance: Balanced sampling prevents model bias.
-Computational Power: Utilizing GPU enables faster training.
 
 
-📑 Acknowledgments
+---
+
+## 🤔 Challenges & Learnings
+
+- **Class Imbalance**: Balanced sampling prevents model bias.
+- **Computational Power**: Utilizing GPU enables faster training.
+
+---
+
+## 📑 Acknowledgments
+
 This project was inspired by the Kaggle Histopathologic Cancer Detection competition, and we would like to thank the contributors for providing this valuable dataset.
 
 
